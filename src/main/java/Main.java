@@ -20,8 +20,18 @@ class TwitterAnalyzer {
 
     }
     private static List<Status> searchTweets(String query) {
-
+// Aswin sentiment filter
     }
+    private static List<Status> mostUsedEmojis() {
+// Massoud
+    }
+    private static List<Status> mostActiveUser(){
+// Burak
+    }
+    private static String mostMentionedWord(List<Status> tweets) {
+// Massoud
+    }
+
 
     private static List<Status> filterTweetsBasedOnSentiment(SentimentValue sentiment, List<Status> tweets) {
         ArrayList<Status> result = new ArrayList<Status>();
@@ -33,9 +43,7 @@ class TwitterAnalyzer {
 
         return result;
     }
-    private static String mostMentionedWORD(List<Status> tweets) {
 
-    }
 }
 
 public class Main {
@@ -71,7 +79,7 @@ public class Main {
         Twitter twitter = tf.getInstance();
         // The factory instance is re-useable and thread safe.
         try {
-            Query query = new Query("#java");
+            Query query = new Query("java");
             QueryResult result = twitter.search(query);
             List<Status> statuses = result.getTweets();
             System.out.println("Showing home timeline.");
