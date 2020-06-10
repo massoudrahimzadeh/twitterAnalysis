@@ -16,7 +16,7 @@ import static com.vdurmont.emoji.EmojiParser.extractEmojis;
 public class TwitterAnalyzer {
     static void analyzeTweet(String tweet) {
         Document doc = new Document(tweet);
-        System.out.println("#1 " + tweet + ": " + doc.sentences().size());
+        System.out.println(tweet + ": " + doc.sentences().size());
 
     }
     static String mostUsedEmojis(List<Status> tweets) {
@@ -124,8 +124,10 @@ public class TwitterAnalyzer {
                 if (getSentiment(tweet.getText()) == sentiment) {
                     result.add(tweet);
                     System.out.println("#"+i+":  " +tweet.getText());
+                    System.out.println(getSentiment(tweet.getText()));
                     System.out.println("=========");
                     i++;
+
                 }
             }
             return result;

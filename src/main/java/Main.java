@@ -25,6 +25,7 @@ public class Main {
                 TwitterAnalyzer.sentimentAnalyse(status.getText());
                 System.out.println("=========");
             }
+            TwitterAnalyzer.filterTweetsBasedOnSentiment(SentimentValue.NEUTRAL, statuses);
 
         } catch (TwitterException e) {
             e.printStackTrace();
