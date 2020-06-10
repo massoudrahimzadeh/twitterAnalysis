@@ -1,12 +1,7 @@
 import twitter4j.*;
 import twitter4j.conf.ConfigurationBuilder;
-
 import java.util.List;
-
-
-
 public class Main {
-
 
     public static void main(String[] args) {
         TwitterAnalyzer ta = new TwitterAnalyzer();
@@ -20,17 +15,18 @@ public class Main {
         Twitter twitter = tf.getInstance();
         // The factory instance is re-useable and thread safe.
         try {
-            Query query = new Query("java");
+            Query query = new Query("#redi");
             QueryResult result = twitter.search(query);
             List<Status> statuses = result.getTweets();
             System.out.println("Showing home timeline.");
             for (Status status : statuses) {
-                ta.analyzeTweet(status.getText());
-                ta.sentimentAnalyse(status.getText());
+                TwitterAnalyzer.analyzeTweet(status.getText());
+                TwitterAnalyzer.sentimentAnalyse(status.getText());
                 System.out.println("=========");
             }
-            System.out.println(ta.mostMentionedWord(statuses));
-            System.out.println(ta.mostUsedEmojis(statuses));
+            System.out.println(TwitterAnalyzer.mostMentionedWord(statuses));
+            System.out.println(TwitterAnalyzer.mostUsedEmojis(statuses));
+            System.out.println(TwitterAnalyzer.filterTweetsBasedOnSentiment(SentimentValue.NEUTRAL, statuses));
         } catch (TwitterException e) {
             e.printStackTrace();
         }
