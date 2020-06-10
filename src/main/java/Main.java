@@ -1,10 +1,11 @@
 import twitter4j.*;
 import twitter4j.conf.ConfigurationBuilder;
+
 import java.util.List;
+
 public class Main {
 
     public static void main(String[] args) {
-        TwitterAnalyzer ta = new TwitterAnalyzer();
         ConfigurationBuilder cb = new ConfigurationBuilder();
         cb.setDebugEnabled(true)
                 .setOAuthConsumerKey("YKE6GZQQb30QL1VmkNGZ9PDuc")
@@ -24,9 +25,7 @@ public class Main {
                 TwitterAnalyzer.sentimentAnalyse(status.getText());
                 System.out.println("=========");
             }
-            System.out.println(TwitterAnalyzer.mostMentionedWord(statuses));
-            System.out.println(TwitterAnalyzer.mostUsedEmojis(statuses));
-            System.out.println(TwitterAnalyzer.filterTweetsBasedOnSentiment(SentimentValue.NEUTRAL, statuses));
+
         } catch (TwitterException e) {
             e.printStackTrace();
         }
