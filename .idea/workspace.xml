@@ -2,11 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="55f04fb9-c08d-4389-90cb-d863a9ac5681" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/TwitterAnalyzer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/TwitterGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/TwitterAnalyzer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TwitterAnalyzer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/twitter_analysis.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/TwitterAnalyzer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/TwitterAnalyzer.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,10 +73,18 @@
       <recent name="D:\java programming with tom\twitter_analysis\src" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="Application.TwitterGUI">
     <configuration name="Main" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="INCLUDE_PROVIDED_SCOPE" value="true" />
       <option name="MAIN_CLASS_NAME" value="Main" />
-      <module name="twitter_analysis" />
+      <module name="twitter_analysis1" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TwitterGUI" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="TwitterGUI" />
+      <module name="twitter_analysis1" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -91,6 +102,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.TwitterGUI" />
         <item itemvalue="JAR Application.slf4j-jdk14-1.7.9.jar" />
       </list>
     </recent_temporary>
@@ -163,6 +175,10 @@
     <option name="LAST_COMMIT_MESSAGE" value="task was assigned and teammates were added, &#10;I have changed the structure and create a class: TwitterAnalyze to make the code easier to read&#10;filterTweetsBasedOnSentiment was fixed and working now, result was tested" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="485" y="72" key="#Main" timestamp="1591964027883">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="485" y="72" key="#Main/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1591964027883" />
     <state x="499" y="160" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1591614036482">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -192,26 +208,26 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="529" y="119" key="Github.UntrackedFilesDialog/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1591639347811" />
-    <state width="1493" height="210" key="GridCell.Tab.0.bottom" timestamp="1591798802238">
+    <state width="1493" height="210" key="GridCell.Tab.0.bottom" timestamp="1591980693151">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1591700139454" />
-    <state width="1493" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1591798802238" />
-    <state width="1493" height="210" key="GridCell.Tab.0.center" timestamp="1591798802238">
+    <state width="1493" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1591971757634" />
+    <state width="1493" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1591980693151" />
+    <state width="1493" height="210" key="GridCell.Tab.0.center" timestamp="1591980693150">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.center/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1591700139454" />
-    <state width="1493" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1591798802238" />
-    <state width="1493" height="210" key="GridCell.Tab.0.left" timestamp="1591798802238">
+    <state width="1493" height="210" key="GridCell.Tab.0.center/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1591971757633" />
+    <state width="1493" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1591980693150" />
+    <state width="1493" height="210" key="GridCell.Tab.0.left" timestamp="1591980693150">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.left/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1591700139453" />
-    <state width="1493" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1591798802238" />
-    <state width="1493" height="210" key="GridCell.Tab.0.right" timestamp="1591798802238">
+    <state width="1493" height="210" key="GridCell.Tab.0.left/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1591971757633" />
+    <state width="1493" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1591980693150" />
+    <state width="1493" height="210" key="GridCell.Tab.0.right" timestamp="1591980693150">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.right/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1591700139454" />
-    <state width="1493" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1591798802238" />
+    <state width="1493" height="210" key="GridCell.Tab.0.right/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1591971757634" />
+    <state width="1493" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1591980693150" />
     <state width="1493" height="261" key="GridCell.Tab.1.bottom" timestamp="1591696819690">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
