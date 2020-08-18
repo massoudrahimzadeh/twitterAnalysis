@@ -10,6 +10,7 @@ import edu.stanford.nlp.util.CoreMap;
 import twitter4j.*;
 import twitter4j.conf.ConfigurationBuilder;
 
+import javax.swing.*;
 import java.util.*;
 
 import static com.vdurmont.emoji.EmojiParser.extractEmojis;
@@ -19,10 +20,10 @@ public class TwitterAnalyzer {
     static Twitter config(){
         ConfigurationBuilder cb = new ConfigurationBuilder();
         cb.setDebugEnabled(true)
-                .setOAuthConsumerKey("YKE6GZQQb30QL1VmkNGZ9PDuc")
-                .setOAuthConsumerSecret("YKiPXe6sY4uHnEKVSPsDU5aOV8JNUijKf3V4qPr9juRkn5FOJm")
-                .setOAuthAccessToken("143509053-OSU1SOsrfWXXpyDblNv8s26dUBKapvFvCReZJ8pc")
-                .setOAuthAccessTokenSecret("ZwZU7j0Ac5VozEgoFTXHdWAmr5FKfuleaIuvDgAoclRqP")
+                .setOAuthConsumerKey("PZWBGuVP3hhkPRvD0p9xdH9cf")
+                .setOAuthConsumerSecret("2e5w43IAuopqeVoKYQ5yeA7vNNyYZSPrV3Fd5dQeA5dBGuabGW")
+                .setOAuthAccessToken("1268222770116165633-kjbHW53Lie0k3tSF9LScJKIsl8RhP6")
+                .setOAuthAccessTokenSecret("QTe3KxJbC6tkveL2Yo8N12Tt8PXDzfAXVsl5FAhllvT5k")
                 .setTweetModeExtended(true);
 
 
@@ -43,12 +44,14 @@ public class TwitterAnalyzer {
     }
     static List<Status> getStatusesBaseOnTheKeyWord(String keyWord) {
         List<Status> statuses = null;
+        List<Status> statuses1 = null;
+
         try {
             Twitter twitter = config();
             Query query = new Query(keyWord);
             QueryResult result = twitter.search(query);
             statuses = result.getTweets();
-
+            
         } catch (TwitterException e) {
             e.printStackTrace();
         }
@@ -56,18 +59,27 @@ public class TwitterAnalyzer {
     }
     static void displayTweets(String keyword){
         List<Status> statuses = getStatusesBaseOnTheKeyWord(keyword);
-        System.out.println("Showing home timeline.");
+        String str="";
         for (Status status : statuses) {
-            TwitterAnalyzer.analyzeTweet(status.getText());
-            TwitterAnalyzer.sentimentAnalyse(status.getText());
-            System.out.println("=========");
+            str+= "\n"+ TwitterAnalyzer.analyzeTweet(status.getText()) + "\n"+ TwitterAnalyzer.sentimentAnalyse(status.getText()) +"\n=========";
         }
+        TwitterAnalyzer.showResultJTextArea(str);
     }
-    static void analyzeTweet(String tweet) {
-        Document doc = new Document(tweet);
-        System.out.println(tweet + ": " + doc.sentences().size());
+    static void showResultJTextArea(String str){
+        JTextArea textArea = new JTextArea(60, 100);
+        textArea.setText(str);
+        textArea.setEditable(false);
+        JScrollPane scrollPane = new JScrollPane(textArea);
+        JOptionPane.showMessageDialog(null, scrollPane);
+    }
 
+    static String analyzeTweet(String tweet) {
+        String str = "";
+        Document doc = new Document(tweet);
+        str+= tweet + ": " + doc.sentences().size();
+        return str;
     }
+
     static String mostUsedEmojis(List<Status> tweets) {
         Map<String, Integer> tweetsEmojiCount = new HashMap<String, Integer>();
 
@@ -91,7 +103,7 @@ public class TwitterAnalyzer {
                 maximum=tweetsEmojiCount.get(item);
             }
         }
-        System.out.println(mostUsedEmoji);
+        JOptionPane.showMessageDialog(null,mostUsedEmoji);
         return mostUsedEmoji;
     }
 
@@ -124,11 +136,11 @@ public class TwitterAnalyzer {
                 }
             }
         }
-        System.out.println(mostUsedWord);
+        JOptionPane.showMessageDialog(null,mostUsedWord);
         return mostUsedWord;
     }
 
-    public static SentimentValue sentimentAnalyse(String tweet) {
+    public static String sentimentAnalyse(String tweet) {
 
         Properties props = new Properties();
         props.setProperty("annotators", "tokenize, ssplit, pos, parse, sentiment");
@@ -138,12 +150,11 @@ public class TwitterAnalyzer {
             Tree tree = sentence.get(SentimentCoreAnnotations.SentimentAnnotatedTree.class);
             int value = RNNCoreAnnotations.getPredictedClass(tree);
             SentimentValue sentimentValue = SentimentValue.fromValue(value);
-            System.out.println("Sentiment analysis of this tweet: "+ sentimentValue);
-            return sentimentValue;
+//            System.out.println("Sentiment analysis of this tweet: "+ sentimentValue);
+            return "Sentiment analysis of this tweet: " +sentimentValue;
         }
-        return SentimentValue.NEGATIVE;
+        return SentimentValue.NEGATIVE.toString();
     }
-
 
     private static SentimentValue getSentiment(String tweet) {
             Properties props = new Properties();
@@ -179,26 +190,27 @@ public class TwitterAnalyzer {
                 maximum=activeUsers.get(user);
             }
         }
-        System.out.println(mostActiveUser);
+        JOptionPane.showMessageDialog(null,mostActiveUser);
         return mostActiveUser;
 
 // Burak
     }
-    static List<Status> filterTweetsBasedOnSentiment(SentimentValue sentiment, List<Status> tweets) {
+    static void filterTweetsBasedOnSentiment(SentimentValue sentiment, List<Status> tweets) {
         ArrayList<Status> result = new ArrayList<Status>();
         int i=1;
+        StringBuilder sb = new StringBuilder();
+        String str = "";
             for (Status tweet: tweets) {
                 if (getSentiment(tweet.getText()) == sentiment) {
+                    str+="\n#"+i+":  " +tweet.getText() + "\n"+ getSentiment(tweet.getText())+"\n =========";
                     result.add(tweet);
-                    System.out.println("#"+i+":  " +tweet.getText());
-                    System.out.println(getSentiment(tweet.getText()));
-                    System.out.println("=========");
                     i++;
-
                 }
             }
-            return result;
+        JTextArea textArea = new JTextArea(60, 100);
+        textArea.setText(str);
+        textArea.setEditable(false);
+        JScrollPane scrollPane = new JScrollPane(textArea);
+        JOptionPane.showMessageDialog(null, scrollPane);
         }
-
-
 }

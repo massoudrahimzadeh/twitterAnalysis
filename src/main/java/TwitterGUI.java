@@ -111,6 +111,7 @@ public class TwitterGUI<ConfigurationBuilder> {
             public void mouseClicked(MouseEvent e) {
                 TwitterAnalyzer.filterTweetsBasedOnSentiment((SentimentValue) comboBox.getSelectedItem(),TwitterAnalyzer.getStatusesBaseOnTheKeyWord(textField.getText()));
 
+
             }
         });
         btnSearchSentiment.setBounds(291, 75, 85, 21);
